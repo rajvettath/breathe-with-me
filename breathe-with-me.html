@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Breathe with Me</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Breathe with Me"/>
+<meta name="theme-color" content="#1A1040"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg1:#1A1040;--bg2:#2D1B69;--bg3:#1A1040;
+  --accent:#C084FC;--accent2:#818CF8;--soft:#E0D7FF;
+  --text:#F0EEFF;--text2:rgba(240,238,255,.6);
+  --card:rgba(255,255,255,.07);--border:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none;}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background:var(--bg1);}
+body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+
+/* ── BACKGROUND ── */
+#bg-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* ── LAYOUT ── */
+#app{position:relative;z-index:1;width:100%;max-width:520px;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 20px 20px;padding-bottom:max(20px,env(safe-area-inset-bottom));}
+
+/* ── TOP BAR ── */
+#topbar{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;}
+#app-title{font-size:17px;font-weight:700;color:var(--soft);letter-spacing:.3px;}
+#ctrls{display:flex;gap:8px;}
+.ctrl{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;transition:all .2s;color:white;}
+.ctrl:hover{background:rgba(255,255,255,.15);}
+.ctrl.on{background:rgba(192,132,252,.25);border-color:var(--accent);}
+
+/* ── SCREENS ── */
+.screen{display:none;width:100%;flex-direction:column;align-items:center;}
+.screen.active{display:flex;}
+
+/* ══════════ HOME SCREEN ══════════ */
+#home{gap:0;}
+#home-hero{text-align:center;margin:24px 0 28px;}
+#home-hero h1{font-size:28px;font-weight:800;color:var(--text);margin-bottom:6px;}
+#home-hero p{font-size:14px;color:var(--text2);line-height:1.6;}
+.buddy-row{display:flex;gap:12px;justify-content:center;margin-bottom:28px;}
+.buddy-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 12px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;cursor:pointer;transition:all .2s;min-width:72px;}
+.buddy-card:hover{transform:translateY(-3px);border-color:var(--accent);}
+.buddy-card.sel{border-color:var(--accent);background:rgba(192,132,252,.18);}
+.buddy-emoji{font-size:34px;line-height:1;}
+.buddy-name{font-size:11px;font-weight:700;color:var(--text2);}
+.exercises-label{font-size:11px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:.8px;align-self:flex-start;margin-bottom:10px;}
+#ex-list{width:100%;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.ex-card{width:100%;padding:16px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px;}
+.ex-card:hover{transform:translateY(-2px);border-color:var(--accent);background:rgba(255,255,255,.1);}
+.ex-icon{font-size:28px;line-height:1;flex-shrink:0;}
+.ex-info{flex:1;}
+.ex-name{font-size:15px;font-weight:800;color:var(--text);}
+.ex-desc{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.4;}
+.ex-tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:10px;margin-top:5px;display:inline-block;}
+.tag-easy{background:rgba(134,239,172,.2);color:#86efac;}
+.tag-calm{background:rgba(129,140,248,.2);color:#818cf8;}
+.tag-focus{background:rgba(251,191,36,.2);color:#fbbf24;}
+
+/* ══════════ BREATHING SCREEN ══════════ */
+#breathing{gap:0;align-items:center;}
+#breath-topbar{width:100%;display:flex;align-items:center;gap:10px;padding:14px 0 0;margin-bottom:16px;}
+#back-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:white;transition:all .2s;flex-shrink:0;}
+#back-btn:hover{background:rgba(255,255,255,.15);}
+#ex-title-bar{flex:1;text-align:center;}
+#ex-title-name{font-size:15px;font-weight:800;color:var(--text);}
+#ex-title-sub{font-size:11px;color:var(--text2);margin-top:2px;}
+
+/* ROUNDS */
+#rounds-bar{display:flex;gap:6px;margin-bottom:20px;}
+.round-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .5s;}
+.round-dot.done{background:var(--accent);}
+.round-dot.current{background:var(--accent);transform:scale(1.4);}
+
+/* BUDDY + CIRCLE */
+#breath-stage{position:relative;width:260px;height:260px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;}
+#outer-ring{position:absolute;width:260px;height:260px;border-radius:50%;border:1.5px solid rgba(192,132,252,.2);}
+#progress-ring{position:absolute;width:260px;height:260px;}
+#progress-ring circle{fill:none;stroke-linecap:round;transform-origin:center;transform:rotate(-90deg);}
+#prog-track{stroke:rgba(255,255,255,.08);stroke-width:4;}
+#prog-fill{stroke:var(--accent);stroke-width:4;transition:stroke-dashoffset .15s linear,stroke .5s;}
+#breath-circle{position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(192,132,252,.12);border:2px solid rgba(192,132,252,.3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;transition:transform 0s,background 0s;}
+#buddy-display{font-size:52px;line-height:1;transition:transform .3s;}
+#phase-count{font-size:28px;font-weight:800;color:var(--text);line-height:1;}
+
+/* PHASE TEXT */
+#phase-area{text-align:center;margin-bottom:18px;min-height:56px;}
+#phase-text{font-size:22px;font-weight:800;color:var(--text);letter-spacing:.3px;transition:opacity .4s;}
+#phase-sub{font-size:13px;color:var(--text2);margin-top:5px;transition:opacity .4s;}
+
+/* AFFIRMATION */
+#affirmation-box{width:100%;padding:12px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:16px;text-align:center;margin-bottom:18px;min-height:52px;display:flex;align-items:center;justify-content:center;}
+#affirmation-text{font-size:14px;font-weight:600;color:var(--soft);line-height:1.5;transition:opacity .8s;}
+
+/* START / PAUSE */
+#start-btn{padding:14px 40px;font-size:17px;font-weight:800;background:var(--accent);color:white;border:none;border-radius:28px;cursor:pointer;font-family:'Nunito',sans-serif;transition:transform .15s,background .2s;letter-spacing:.3px;}
+#start-btn:hover{transform:scale(1.04);}
+#start-btn:disabled{background:rgba(192,132,252,.3);cursor:not-allowed;transform:none;}
+
+/* DONE SCREEN */
+#done-screen{display:none;width:100%;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:30px 0;}
+#done-buddy{font-size:72px;animation:doneBounce 1s ease infinite alternate;}
+@keyframes doneBounce{0%{transform:translateY(0)}100%{transform:translateY(-12px)}}
+#done-msg{font-size:24px;font-weight:800;color:var(--text);}
+#done-sub{font-size:14px;color:var(--text2);line-height:1.6;max-width:320px;}
+#done-stars{font-size:28px;letter-spacing:4px;}
+#done-again,#done-home{padding:13px 30px;font-size:15px;font-weight:800;border-radius:24px;cursor:pointer;font-family:'Nunito',sans-serif;border:none;transition:transform .15s;}
+#done-again{background:var(--accent);color:white;margin-right:10px;}
+#done-home{background:var(--card);color:var(--text);border:1.5px solid var(--border);}
+#done-again:hover,#done-home:hover{transform:scale(1.03);}
+
+/* MOBILE */
+@media(max-width:380px){
+  #breath-stage{width:220px;height:220px;}
+  #outer-ring{width:220px;height:220px;}
+  #progress-ring{width:220px;height:220px;}
+  #breath-circle{width:136px;height:136px;}
+  #buddy-display{font-size:44px;}
+  #phase-count{font-size:24px;}
+  #phase-text{font-size:18px;}
+  .buddy-card{min-width:60px;padding:10px 8px;}
+  .buddy-emoji{font-size:28px;}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<div id="app">
+  <div id="topbar">
+    <div id="app-title">🌬️ Breathe with Me</div>
+    <div id="ctrls">
+      <button class="ctrl on" id="btn-snd" title="Sound">🔊</button>
+      <button class="ctrl" id="btn-slow" title="Slow mode">🐢</button>
+    </div>
+  </div>
+
+  <!-- HOME SCREEN -->
+  <div id="home" class="screen active">
+    <div id="home-hero">
+      <h1>Let's breathe together 🌬️</h1>
+      <p>Choose a friend and a breathing exercise.<br>There's no rush — go at your own pace.</p>
+    </div>
+
+    <div class="buddy-row" id="buddy-row"></div>
+
+    <div class="exercises-label">Choose an exercise</div>
+    <div id="ex-list"></div>
+  </div>
+
+  <!-- BREATHING SCREEN -->
+  <div id="breathing" class="screen">
+    <div id="breath-topbar">
+      <button id="back-btn">←</button>
+      <div id="ex-title-bar">
+        <div id="ex-title-name">Box Breathing</div>
+        <div id="ex-title-sub">4 rounds</div>
+      </div>
+      <div style="width:36px"></div>
+    </div>
+
+    <div id="rounds-bar"></div>
+
+    <div id="breath-stage">
+      <div id="outer-ring"></div>
+      <svg id="progress-ring" viewBox="0 0 260 260">
+        <circle id="prog-track" cx="130" cy="130" r="126"/>
+        <circle id="prog-fill" cx="130" cy="130" r="126"/>
+      </svg>
+      <div id="breath-circle">
+        <div id="buddy-display">🌙</div>
+        <div id="phase-count">4</div>
+      </div>
+    </div>
+
+    <div id="phase-area">
+      <div id="phase-text">Ready?</div>
+      <div id="phase-sub">Tap Start when you are ready</div>
+    </div>
+
+    <div id="affirmation-box">
+      <div id="affirmation-text">You are doing great 💜</div>
+    </div>
+
+    <button id="start-btn">Start ▶</button>
+
+    <div id="done-screen">
+      <div id="done-buddy">🌙</div>
+      <div id="done-stars">⭐⭐⭐</div>
+      <div id="done-msg">Well done!</div>
+      <div id="done-sub">You finished all the rounds. You should feel proud of yourself.</div>
+      <div>
+        <button id="done-again">Again 🔄</button>
+        <button id="done-home">Home 🏠</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════
+   DATA
+═══════════════════════════════ */
+const BUDDIES = [
+  {e:'🌙',name:'Moon'}, {e:'⭐',name:'Star'}, {e:'🌈',name:'Rainbow'},
+  {e:'🦋',name:'Flutter'},{e:'🐋',name:'Whaley'},{e:'🌸',name:'Blossom'},
+];
+
+const AFFIRMATIONS = [
+  "You are doing great 💜",
+  "You are safe and calm 🌙",
+  "Breathe in peace, breathe out worry 🌬️",
+  "You are so brave and strong ⭐",
+  "Every breath makes you calmer 🌊",
+  "You are wonderful just as you are 🌸",
+  "Well done, keep going 💪",
+  "You are relaxing beautifully 🦋",
+  "Feel your body getting calmer 😌",
+  "You are doing something kind for yourself 💜",
+  "Each breath is a fresh start 🌈",
+  "Your calm is growing 🌿",
+];
+
+const EXERCISES = [
+  {
+    id:'box', name:'Box Breathing', icon:'📦',
+    desc:'Breathe in, hold, breathe out, hold. A classic calming pattern.',
+    tag:'Calming', tagClass:'tag-calm',
+    rounds:4, color:'#818CF8',
+    phases:[
+      {label:'Breathe in',  sub:'Through your nose', counts:4, type:'in',   circleScale:1.25, bg:'rgba(129,140,248,.18)'},
+      {label:'Hold',        sub:'Keep still',        counts:4, type:'hold', circleScale:1.25, bg:'rgba(129,140,248,.10)'},
+      {label:'Breathe out', sub:'Through your mouth',counts:4, type:'out',  circleScale:1.0,  bg:'rgba(129,140,248,.06)'},
+      {label:'Hold',        sub:'Keep still',        counts:4, type:'hold2',circleScale:1.0,  bg:'rgba(129,140,248,.06)'},
+    ]
+  },
+  {
+    id:'deep', name:'Deep Belly Breath', icon:'🌊',
+    desc:'Big slow breaths that fill your whole belly. Super calming.',
+    tag:'Easy', tagClass:'tag-easy',
+    rounds:5, color:'#34D399',
+    phases:[
+      {label:'Breathe in',  sub:'Fill your belly up like a balloon', counts:5, type:'in',  circleScale:1.3,  bg:'rgba(52,211,153,.15)'},
+      {label:'Breathe out', sub:'Let all the air out slowly',        counts:5, type:'out', circleScale:1.0,  bg:'rgba(52,211,153,.06)'},
+    ]
+  },
+  {
+    id:'478', name:'4-7-8 Breathing', icon:'🌙',
+    desc:'Breathe in 4, hold 7, out for 8. Helps with worry and sleep.',
+    tag:'Focus', tagClass:'tag-focus',
+    rounds:4, color:'#C084FC',
+    phases:[
+      {label:'Breathe in',  sub:'Nice and slow',         counts:4, type:'in',   circleScale:1.25, bg:'rgba(192,132,252,.18)'},
+      {label:'Hold',        sub:'Keep the breath inside', counts:7, type:'hold', circleScale:1.25, bg:'rgba(192,132,252,.10)'},
+      {label:'Breathe out', sub:'Make a whooshing sound', counts:8, type:'out',  circleScale:1.0,  bg:'rgba(192,132,252,.06)'},
+    ]
+  },
+  {
+    id:'flower', name:'Smell the Flowers', icon:'🌸',
+    desc:'Smell a flower in, blow out a candle. Fun and easy!',
+    tag:'Easy', tagClass:'tag-easy',
+    rounds:5, color:'#F472B6',
+    phases:[
+      {label:'Smell the flower 🌸', sub:'Breathe in through your nose',  counts:3, type:'in',  circleScale:1.2,  bg:'rgba(244,114,182,.18)'},
+      {label:'Blow the candle 🕯️',  sub:'Breathe out through your mouth',counts:4, type:'out', circleScale:1.0,  bg:'rgba(244,114,182,.06)'},
+    ]
+  },
+  {
+    id:'star', name:'Star Breathing', icon:'⭐',
+    desc:'Trace a star shape! In on one side, out on the next.',
+    tag:'Focus', tagClass:'tag-focus',
+    rounds:5, color:'#FBBF24',
+    phases:[
+      {label:'Breathe in ✨',  sub:'Trace up the star point',   counts:4, type:'in',   circleScale:1.25, bg:'rgba(251,191,36,.15)'},
+      {label:'Breathe out 💫', sub:'Trace down the star point', counts:4, type:'out',  circleScale:1.0,  bg:'rgba(251,191,36,.06)'},
+    ]
+  },
+];
+
+/* ═══════════════════════════════
+   STATE
+═══════════════════════════════ */
+let selBuddy = BUDDIES[0];
+let selEx = null;
+let soundOn = true;
+let slowMode = false;
+let running = false;
+let paused = false;
+let currentRound = 0;
+let currentPhase = 0;
+let currentCount = 0;
+let phaseTimer = null;
+let countTimer = null;
+let affirmIdx = 0;
+let actx = null;
+let circumference = 2 * Math.PI * 126;
+let totalPhaseDuration = 0;
+let phaseElapsed = 0;
+let phaseInterval = null;
+
+/* ═══════════════════════════════
+   AUDIO
+═══════════════════════════════ */
+function getAC(){ if(!actx) actx=new(window.AudioContext||window.webkitAudioContext)(); return actx; }
+
+function playPhaseSound(type){
+  if(!soundOn) return;
+  try{
+    const ac=getAC();
+    const freqMap={in:[220,277,330],hold:[330,330],out:[330,262,196],hold2:[196,196]};
+    const freqs=freqMap[type]||[220];
+    freqs.forEach((f,i)=>{
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.type='sine';o.frequency.value=f;
+      const t=ac.currentTime+i*.18;
+      g.gain.setValueAtTime(0,t);
+      g.gain.linearRampToValueAtTime(.1,t+.1);
+      g.gain.exponentialRampToValueAtTime(.001,t+.5);
+      o.start(t);o.stop(t+.55);
+    });
+  }catch(e){}
+}
+
+function playCountTick(){
+  if(!soundOn) return;
+  try{
+    const ac=getAC();
+    const o=ac.createOscillator(),g=ac.createGain();
+    o.connect(g);g.connect(ac.destination);
+    o.type='sine';o.frequency.value=440;
+    g.gain.setValueAtTime(.06,ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.12);
+    o.start();o.stop(ac.currentTime+.12);
+  }catch(e){}
+}
+
+function playDone(){
+  if(!soundOn) return;
+  try{
+    const ac=getAC();
+    [523,659,784,1047].forEach((f,i)=>{
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.type='sine';o.frequency.value=f;
+      const t=ac.currentTime+i*.14;
+      g.gain.setValueAtTime(.12,t);
+      g.gain.exponentialRampToValueAtTime(.001,t+.4);
+      o.start(t);o.stop(t+.45);
+    });
+  }catch(e){}
+}
+
+/* ═══════════════════════════════
+   BACKGROUND CANVAS
+═══════════════════════════════ */
+const bgCanvas=document.getElementById('bg-canvas');
+const bgCtx=bgCanvas.getContext('2d');
+let bgStars=[];
+let bgW=0,bgH=0;
+
+function resizeBg(){
+  bgW=bgCanvas.width=window.innerWidth;
+  bgH=bgCanvas.height=window.innerHeight;
+  bgStars=[];
+  for(let i=0;i<80;i++) bgStars.push({
+    x:Math.random()*bgW, y:Math.random()*bgH,
+    r:.4+Math.random()*1.8,
+    a:Math.random(), va:(Math.random()-.5)*.006,
+    hue:200+Math.random()*60
+  });
+}
+
+function drawBg(){
+  const grad=bgCtx.createLinearGradient(0,0,0,bgH);
+  grad.addColorStop(0,'#1A1040');
+  grad.addColorStop(.5,'#2D1B69');
+  grad.addColorStop(1,'#0D0A2A');
+  bgCtx.fillStyle=grad;
+  bgCtx.fillRect(0,0,bgW,bgH);
+  bgStars.forEach(s=>{
+    s.a+=s.va; if(s.a>1||s.a<0)s.va*=-1;
+    bgCtx.beginPath();
+    bgCtx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    bgCtx.fillStyle=`hsla(${s.hue},80%,85%,${Math.max(0,s.a)})`;
+    bgCtx.fill();
+  });
+  requestAnimationFrame(drawBg);
+}
+
+window.addEventListener('resize',resizeBg);
+resizeBg(); drawBg();
+
+/* ═══════════════════════════════
+   PROGRESS RING
+═══════════════════════════════ */
+function initRing(stageSize){
+  const r=stageSize===220?106:126;
+  circumference=2*Math.PI*r;
+  document.getElementById('prog-track').setAttribute('r',r);
+  document.getElementById('prog-fill').setAttribute('r',r);
+  const cx=stageSize/2, cy=stageSize/2;
+  document.getElementById('prog-track').setAttribute('cx',cx);
+  document.getElementById('prog-track').setAttribute('cy',cy);
+  document.getElementById('prog-fill').setAttribute('cx',cx);
+  document.getElementById('prog-fill').setAttribute('cy',cy);
+  document.getElementById('prog-fill').style.strokeDasharray=circumference;
+  document.getElementById('prog-fill').style.strokeDashoffset=circumference;
+}
+
+function setRingProgress(pct, color){
+  const offset=circumference-(pct*circumference);
+  document.getElementById('prog-fill').style.strokeDashoffset=offset;
+  document.getElementById('prog-fill').style.stroke=color||selEx?.color||'#C084FC';
+}
+
+/* ═══════════════════════════════
+   BUILD HOME
+═══════════════════════════════ */
+function buildHome(){
+  // buddies
+  const br=document.getElementById('buddy-row');
+  br.innerHTML='';
+  BUDDIES.forEach(b=>{
+    const d=document.createElement('div');
+    d.className='buddy-card'+(b.e===selBuddy.e?' sel':'');
+    d.innerHTML=`<span class="buddy-emoji">${b.e}</span><span class="buddy-name">${b.name}</span>`;
+    d.onclick=()=>{
+      selBuddy=b;
+      document.querySelectorAll('.buddy-card').forEach(x=>x.classList.remove('sel'));
+      d.classList.add('sel');
+      document.getElementById('buddy-display').textContent=b.e;
+      document.getElementById('done-buddy').textContent=b.e;
+    };
+    br.appendChild(d);
+  });
+  // exercises
+  const el=document.getElementById('ex-list');
+  el.innerHTML='';
+  EXERCISES.forEach(ex=>{
+    const d=document.createElement('div');
+    d.className='ex-card';
+    d.innerHTML=`
+      <div class="ex-icon">${ex.icon}</div>
+      <div class="ex-info">
+        <div class="ex-name">${ex.name}</div>
+        <div class="ex-desc">${ex.desc}</div>
+        <span class="ex-tag ${ex.tagClass}">${ex.tag} · ${ex.rounds} rounds</span>
+      </div>`;
+    d.onclick=()=>startExercise(ex);
+    el.appendChild(d);
+  });
+}
+
+/* ═══════════════════════════════
+   START EXERCISE
+═══════════════════════════════ */
+function startExercise(ex){
+  selEx=ex;
+  currentRound=0; currentPhase=0; currentCount=ex.phases[0].counts; running=false;
+  document.getElementById('ex-title-name').textContent=ex.name;
+  document.getElementById('ex-title-sub').textContent=ex.rounds+' rounds · '+selBuddy.name+' is with you';
+  document.getElementById('buddy-display').textContent=selBuddy.e;
+  document.getElementById('done-buddy').textContent=selBuddy.e;
+  document.getElementById('phase-text').textContent='Ready?';
+  document.getElementById('phase-sub').textContent='Tap Start when you feel ready';
+  document.getElementById('phase-count').textContent='';
+  document.getElementById('start-btn').textContent='Start ▶';
+  document.getElementById('start-btn').disabled=false;
+  document.getElementById('start-btn').style.background=ex.color;
+  document.getElementById('done-screen').style.display='none';
+  document.getElementById('start-btn').style.display='block';
+  document.getElementById('phase-area').style.display='block';
+  document.getElementById('affirmation-box').style.display='flex';
+  document.getElementById('rounds-bar').style.display='flex';
+  resetCircle();
+  buildRoundDots();
+  setRingProgress(0, ex.color);
+  showAffirmation();
+  showScreen('breathing');
+}
+
+function buildRoundDots(){
+  const bar=document.getElementById('rounds-bar');
+  bar.innerHTML='';
+  for(let i=0;i<selEx.rounds;i++){
+    const d=document.createElement('div');
+    d.className='round-dot'+(i===0?' current':'');
+    d.id='rd-'+i;
+    bar.appendChild(d);
+  }
+}
+
+function updateRoundDots(){
+  for(let i=0;i<selEx.rounds;i++){
+    const d=document.getElementById('rd-'+i);
+    if(!d) continue;
+    d.className='round-dot';
+    if(i<currentRound) d.classList.add('done');
+    else if(i===currentRound) d.classList.add('current');
+  }
+}
+
+function resetCircle(){
+  const c=document.getElementById('breath-circle');
+  c.style.transition='none';
+  c.style.transform='scale(1)';
+  c.style.background='rgba(192,132,252,.12)';
+  c.style.borderColor='rgba(192,132,252,.3)';
+}
+
+/* ═══════════════════════════════
+   RUN PHASE
+═══════════════════════════════ */
+function runPhase(){
+  if(!running) return;
+  const phase=selEx.phases[currentPhase];
+  const counts=slowMode ? Math.ceil(phase.counts*1.5) : phase.counts;
+  const secPerCount=1000;
+  totalPhaseDuration=counts*secPerCount;
+  phaseElapsed=0;
+
+  // Update UI text
+  fadeText(phase.label, phase.sub||'');
+  playPhaseSound(phase.type);
+
+  // Animate circle
+  const c=document.getElementById('breath-circle');
+  c.style.transition=`transform ${totalPhaseDuration}ms ease-in-out, background ${totalPhaseDuration}ms ease-in-out`;
+  c.style.transform=`scale(${phase.circleScale})`;
+  c.style.background=phase.bg;
+
+  // Count down
+  currentCount=counts;
+  document.getElementById('phase-count').textContent=currentCount;
+  clearInterval(countTimer);
+  countTimer=setInterval(()=>{
+    currentCount--;
+    if(currentCount<=0){ clearInterval(countTimer); return; }
+    document.getElementById('phase-count').textContent=currentCount;
+    playCountTick();
+  },secPerCount);
+
+  // Progress ring — animate over phase duration
+  clearInterval(phaseInterval);
+  const totalPhaseTime=getTotalRoundTime();
+  const phaseStart=getElapsedBeforePhase();
+  let ringEl=0;
+  phaseInterval=setInterval(()=>{
+    ringEl+=50;
+    const pct=(phaseStart+ringEl)/totalPhaseTime;
+    setRingProgress(Math.min(1,pct),selEx.color);
+    if(ringEl>=totalPhaseDuration) clearInterval(phaseInterval);
+  },50);
+
+  // Next phase
+  clearTimeout(phaseTimer);
+  phaseTimer=setTimeout(()=>{
+    currentPhase++;
+    if(currentPhase>=selEx.phases.length){
+      currentPhase=0;
+      currentRound++;
+      updateRoundDots();
+      if(currentRound>=selEx.rounds){
+        finishExercise(); return;
+      }
+      showAffirmation();
+    }
+    runPhase();
+  },totalPhaseDuration);
+}
+
+function getTotalRoundTime(){
+  let t=0;
+  selEx.phases.forEach(p=>{
+    const c=slowMode?Math.ceil(p.counts*1.5):p.counts;
+    t+=c*1000;
+  });
+  return t*selEx.rounds;
+}
+
+function getElapsedBeforePhase(){
+  let t=0;
+  const phaseTime=p=>slowMode?Math.ceil(p.counts*1.5)*1000:p.counts*1000;
+  for(let r=0;r<currentRound;r++) selEx.phases.forEach(p=>t+=phaseTime(p));
+  for(let ph=0;ph<currentPhase;ph++) t+=phaseTime(selEx.phases[ph]);
+  return t;
+}
+
+function fadeText(main, sub){
+  const pt=document.getElementById('phase-text');
+  const ps=document.getElementById('phase-sub');
+  pt.style.opacity='0'; ps.style.opacity='0';
+  setTimeout(()=>{
+    pt.textContent=main; ps.textContent=sub;
+    pt.style.opacity='1'; ps.style.opacity='1';
+  },350);
+}
+
+function showAffirmation(){
+  const el=document.getElementById('affirmation-text');
+  el.style.opacity='0';
+  setTimeout(()=>{
+    el.textContent=AFFIRMATIONS[affirmIdx%AFFIRMATIONS.length];
+    affirmIdx++;
+    el.style.opacity='1';
+  },600);
+}
+
+/* ═══════════════════════════════
+   FINISH
+═══════════════════════════════ */
+function finishExercise(){
+  running=false;
+  clearTimeout(phaseTimer);
+  clearInterval(countTimer);
+  clearInterval(phaseInterval);
+
+  const c=document.getElementById('breath-circle');
+  c.style.transition='transform .8s ease,background .8s ease';
+  c.style.transform='scale(1)';
+  c.style.background='rgba(192,132,252,.18)';
+
+  setRingProgress(1, selEx.color);
+  fadeText('All done! 🎉','You finished every round!');
+  document.getElementById('phase-count').textContent='';
+  playDone();
+
+  // Mark all dots done
+  for(let i=0;i<selEx.rounds;i++){
+    const d=document.getElementById('rd-'+i);
+    if(d){ d.className='round-dot done'; }
+  }
+
+  setTimeout(()=>{
+    document.getElementById('start-btn').style.display='none';
+    document.getElementById('phase-area').style.display='none';
+    document.getElementById('affirmation-box').style.display='none';
+    const done=document.getElementById('done-screen');
+    done.style.display='flex';
+    const msgs={
+      box:'Box breathing helps your nervous system calm down. Well done!',
+      deep:'Deep belly breaths send a signal to your brain that you are safe.',
+      478:'The 4-7-8 pattern is used by doctors to help with anxiety and sleep.',
+      flower:'Smelling flowers and blowing candles is one of the easiest ways to calm down!',
+      star:'Star breathing helps you feel focused and grounded. You did it!',
+    };
+    document.getElementById('done-sub').textContent=msgs[selEx.id]||'Amazing breathing! You should feel very proud.';
+    document.getElementById('done-buddy').textContent=selBuddy.e;
+    const pct=1;
+    const stars=pct>=1?'⭐⭐⭐':pct>=.7?'⭐⭐':'⭐';
+    document.getElementById('done-stars').textContent=stars;
+    document.getElementById('done-msg').textContent='Well done, '+selBuddy.name+'!';
+  },1400);
+}
+
+/* ═══════════════════════════════
+   CONTROLS
+═══════════════════════════════ */
+document.getElementById('start-btn').onclick=()=>{
+  if(!running){
+    running=true;
+    document.getElementById('start-btn').textContent='Pause ⏸';
+    document.getElementById('start-btn').style.background='rgba(192,132,252,.4)';
+    updateRoundDots();
+    runPhase();
+  } else {
+    running=false;
+    clearTimeout(phaseTimer); clearInterval(countTimer); clearInterval(phaseInterval);
+    document.getElementById('start-btn').textContent='Resume ▶';
+    document.getElementById('start-btn').style.background=selEx.color;
+    fadeText('Paused','Tap Resume when ready');
+    document.getElementById('phase-count').textContent='';
+    const c=document.getElementById('breath-circle');
+    c.style.transition='transform .5s,background .5s';
+    c.style.transform='scale(1)';
+  }
+};
+
+document.getElementById('back-btn').onclick=()=>{
+  running=false;
+  clearTimeout(phaseTimer); clearInterval(countTimer); clearInterval(phaseInterval);
+  showScreen('home');
+};
+
+document.getElementById('done-again').onclick=()=>startExercise(selEx);
+document.getElementById('done-home').onclick=()=>{ running=false; clearTimeout(phaseTimer); clearInterval(countTimer); showScreen('home'); };
+
+document.getElementById('btn-snd').onclick=()=>{
+  soundOn=!soundOn;
+  document.getElementById('btn-snd').textContent=soundOn?'🔊':'🔇';
+  document.getElementById('btn-snd').classList.toggle('on',soundOn);
+};
+
+document.getElementById('btn-slow').onclick=()=>{
+  slowMode=!slowMode;
+  document.getElementById('btn-slow').textContent=slowMode?'🐢':'⚡';
+  document.getElementById('btn-slow').classList.toggle('on',slowMode);
+};
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* ═══════════════════════════════
+   INIT
+═══════════════════════════════ */
+initRing(window.innerWidth<380?220:260);
+window.addEventListener('resize',()=>initRing(window.innerWidth<380?220:260));
+buildHome();
+setRingProgress(0);
+</script>
+</body>
+</html>
