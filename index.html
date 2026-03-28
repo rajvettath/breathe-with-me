@@ -4,806 +4,433 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>Breathe with Me</title>
-<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkJyZWF0aGUgd2l0aCBNZSIsICJzaG9ydF9uYW1lIjogIkJyZWF0aGUiLCAiZGVzY3JpcHRpb24iOiAiQSBjYWxtaW5nIGFwcCBmb3IgYXV0aXN0aWMgY2hpbGRyZW4iLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzFBMTA0MCIsICJ0aGVtZV9jb2xvciI6ICIjMUExMDQwIiwgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0LXByaW1hcnkiLCAiaWNvbnMiOiBbeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhPVElnTVRreUlqNDhjbVZqZENCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUlnY25nOUlqUXdJaUJtYVd4c1BTSWpNVUV4TURRd0lpOCtQSFJsZUhRZ2VEMGlPVFlpSUhrOUlqRXlOU0lnWm05dWRDMXphWHBsUFNJeE1EQWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpUHZDZmpLenZ1STg4TDNSbGVIUStQSFJsZUhRZ2VEMGlPVFlpSUhrOUlqRTNOU0lnWm05dWRDMXphWHBsUFNJeE9DSWdabTl1ZEMxM1pXbG5hSFE5SW1KdmJHUWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdacGJHdzlJbmRvYVhSbElpQm1iMjUwTFdaaGJXbHNlVDBpUVhKcFlXd2lQa0p5WldGMGFHVWdkMmwwYUNCTlpUd3ZkR1Y0ZEQ0OEwzTjJaejQ9IiwgInNpemVzIjogIjE5MngxOTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIn0sIHsic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0F4T1RJZ01Ua3lJajQ4Y21WamRDQjNhV1IwYUQwaU1Ua3lJaUJvWldsbmFIUTlJakU1TWlJZ2NuZzlJalF3SWlCbWFXeHNQU0lqTVVFeE1EUXdJaTgrUEhSbGVIUWdlRDBpT1RZaUlIazlJakV5TlNJZ1ptOXVkQzF6YVhwbFBTSXhNREFpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaVB2Q2ZqS3p2dUk4OEwzUmxlSFErUEhSbGVIUWdlRDBpT1RZaUlIazlJakUzTlNJZ1ptOXVkQzF6YVhwbFBTSXhPQ0lnWm05dWRDMTNaV2xuYUhROUltSnZiR1FpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHWnBiR3c5SW5kb2FYUmxJaUJtYjI1MExXWmhiV2xzZVQwaVFYSnBZV3dpUGtKeVpXRjBhR1VnZDJsMGFDQk5aVHd2ZEdWNGRENDhMM04yWno0PSIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0="/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="Breathe with Me"/>
 <meta name="theme-color" content="#1A1040"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --bg1:#1A1040;--bg2:#2D1B69;--bg3:#1A1040;
-  --accent:#C084FC;--accent2:#818CF8;--soft:#E0D7FF;
-  --text:#F0EEFF;--text2:rgba(240,238,255,.6);
-  --card:rgba(255,255,255,.07);--border:rgba(255,255,255,.12);
+  --bg1:#1A1040;--bg2:#2D1B69;
+  --acc:#C084FC;--acc2:#818CF8;
+  --soft:#E0D7FF;--text:#F0EEFF;--text2:rgba(240,238,255,.65);
+  --card:rgba(255,255,255,.08);--border:rgba(255,255,255,.14);
+  --green:#4ade80;--yellow:#fbbf24;
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background:var(--bg1);}
-body{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+html,body{width:100%;height:100%;overflow-x:hidden;font-family:'Nunito',sans-serif;background:var(--bg1);color:var(--text);}
+#stars-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.star{position:absolute;border-radius:50%;background:white;opacity:0;animation:twinkle var(--d,4s) var(--delay,0s) ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--op,.3)}}
+#app{position:relative;z-index:1;width:100%;max-width:500px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:0 18px;padding-bottom:max(24px,env(safe-area-inset-bottom));}
+#topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0 0;}
+#app-logo{font-size:16px;font-weight:800;color:var(--soft);}
+#top-btns{display:flex;gap:8px;align-items:center;}
+.top-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 10px;border-radius:14px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;min-width:52px;}
+.top-btn.on{background:rgba(192,132,252,.25);border-color:var(--acc);}
+.top-btn-icon{font-size:19px;line-height:1;}
+.top-btn-lbl{font-size:11px;font-weight:800;color:var(--text2);letter-spacing:.3px;}
+.top-btn.on .top-btn-lbl{color:var(--acc);}
+.screen{display:none;}
+.screen.active{display:flex;flex-direction:column;}
 
-/* ── BACKGROUND ── */
-#bg-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
-
-/* ── LAYOUT ── */
-#app{position:relative;z-index:600;width:100%;max-width:520px;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 20px 20px;padding-bottom:max(20px,env(safe-area-inset-bottom));}
-
-/* ── TOP BAR ── */
-#topbar{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;}
-#app-title{font-size:17px;font-weight:700;color:var(--soft);letter-spacing:.3px;}
-#ctrls{display:flex;gap:8px;}
-.ctrl{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;transition:all .2s;color:white;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-.ctrl:hover{background:rgba(255,255,255,.15);}
-.ctrl.on{background:rgba(192,132,252,.25);border-color:var(--accent);}
-
-/* ── SCREENS ── */
-.screen{display:none;width:100%;flex-direction:column;align-items:center;}
-.screen.active{display:flex;}
-
-/* ══════════ HOME SCREEN ══════════ */
-#home{gap:0;}
-#home-hero{text-align:center;margin:24px 0 28px;}
-#home-hero h1{font-size:28px;font-weight:800;color:var(--text);margin-bottom:6px;}
-#home-hero p{font-size:14px;color:var(--text2);line-height:1.6;}
-.buddy-row{display:flex;gap:12px;justify-content:center;margin-bottom:28px;}
-.buddy-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 12px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;cursor:pointer;transition:all .2s;min-width:72px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-.buddy-card:hover{transform:translateY(-3px);border-color:var(--accent);}
-.buddy-card.sel{border-color:var(--accent);background:rgba(192,132,252,.18);}
-.buddy-emoji{font-size:34px;line-height:1;}
-.buddy-name{font-size:11px;font-weight:700;color:var(--text2);}
-.exercises-label{font-size:11px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:.8px;align-self:flex-start;margin-bottom:10px;}
-#ex-list{width:100%;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
-.ex-card{width:100%;padding:16px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-.ex-card:hover{transform:translateY(-2px);border-color:var(--accent);background:rgba(255,255,255,.1);}
-.ex-icon{font-size:28px;line-height:1;flex-shrink:0;}
+/* HOME */
+#home{gap:0;padding-top:16px;}
+#home-hero{text-align:center;margin-bottom:20px;}
+#home-hero h1{font-size:26px;font-weight:900;color:var(--text);margin-bottom:6px;line-height:1.2;}
+#home-hero p{font-size:13px;color:var(--text2);line-height:1.6;}
+.sec-lbl{font-size:10px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;}
+#buddy-scroll{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+#buddy-scroll::-webkit-scrollbar{display:none;}
+.buddy-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 10px;background:var(--card);border:2px solid var(--border);border-radius:16px;cursor:pointer;flex-shrink:0;min-width:68px;transition:all .2s;}
+.buddy-btn.sel{border-color:var(--acc);background:rgba(192,132,252,.2);}
+.buddy-emoji{font-size:30px;line-height:1;}
+.buddy-name{font-size:11px;font-weight:800;color:var(--text2);}
+#ex-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+.ex-card{padding:14px 16px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:12px;}
+.ex-icon-wrap{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
 .ex-info{flex:1;}
-.ex-name{font-size:15px;font-weight:800;color:var(--text);}
-.ex-desc{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.4;}
-.ex-tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:10px;margin-top:5px;display:inline-block;}
-.tag-easy{background:rgba(134,239,172,.2);color:#86efac;}
-.tag-calm{background:rgba(129,140,248,.2);color:#818cf8;}
-.tag-focus{background:rgba(251,191,36,.2);color:#fbbf24;}
+.ex-name{font-size:15px;font-weight:900;color:var(--text);margin-bottom:2px;}
+.ex-feeling{font-size:12px;color:var(--acc);font-weight:700;margin-bottom:4px;}
+.ex-desc{font-size:12px;color:var(--text2);line-height:1.4;}
+.ex-meta{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
+.ex-tag{font-size:10px;font-weight:800;padding:3px 9px;border-radius:10px;}
+.tag-easy{background:rgba(74,222,128,.15);color:#4ade80;}
+.tag-calm{background:rgba(129,140,248,.15);color:#818cf8;}
+.tag-focus{background:rgba(251,191,36,.15);color:#fbbf24;}
 
-/* ══════════ BREATHING SCREEN ══════════ */
-#breathing{gap:0;align-items:center;}
-#breath-topbar{width:100%;display:flex;align-items:center;gap:10px;padding:14px 0 0;margin-bottom:16px;}
-#back-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:white;transition:all .2s;flex-shrink:0;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-#back-btn:hover{background:rgba(255,255,255,.15);}
-#ex-title-bar{flex:1;text-align:center;}
-#ex-title-name{font-size:15px;font-weight:800;color:var(--text);}
-#ex-title-sub{font-size:11px;color:var(--text2);margin-top:2px;}
+/* BREATHING */
+#breathing{padding-top:12px;align-items:center;}
+#breath-nav{width:100%;display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+#back-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:white;flex-shrink:0;}
+#ex-header{flex:1;text-align:center;}
+#ex-hname{font-size:15px;font-weight:900;color:var(--text);}
+#ex-hfeel{font-size:11px;color:var(--acc);font-weight:700;margin-top:2px;}
+#next-up-bar{width:100%;padding:8px 14px;background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.25);border-radius:12px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+#next-up-lbl{font-size:11px;color:var(--text2);font-weight:700;flex-shrink:0;}
+#next-up-val{font-size:12px;font-weight:800;color:var(--soft);}
+#round-progress{width:100%;margin-bottom:12px;}
+#round-track{height:8px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden;}
+#round-fill{height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:10px;transition:width .5s ease;}
+#round-lbl{font-size:12px;font-weight:800;color:var(--text2);text-align:right;margin-top:4px;}
+#breath-stage{position:relative;width:240px;height:240px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+#ring-svg{position:absolute;width:240px;height:240px;}
+#ring-track{fill:none;stroke:rgba(255,255,255,.08);stroke-width:6;}
+#ring-prog{fill:none;stroke-width:6;stroke-linecap:round;transform-origin:center;transform:rotate(-90deg);}
+#breath-ball{position:absolute;width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+#buddy-big{font-size:54px;line-height:1;}
+#count-big{font-size:42px;font-weight:900;color:white;line-height:1;}
+#phase-area{text-align:center;margin-bottom:12px;min-height:60px;}
+#phase-word{font-size:26px;font-weight:900;color:var(--text);transition:opacity .4s;}
+#phase-instruction{font-size:13px;color:var(--text2);margin-top:4px;transition:opacity .4s;line-height:1.5;}
+#stop-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:6px;}
+#affirm-box{width:100%;padding:11px 16px;background:var(--card);border:1px solid var(--border);border-radius:14px;text-align:center;margin-bottom:12px;}
+#affirm-text{font-size:14px;font-weight:700;color:var(--soft);line-height:1.4;transition:opacity .8s;}
+#start-btn{width:100%;padding:16px;font-size:18px;font-weight:900;background:var(--acc);color:white;border:none;border-radius:24px;cursor:pointer;font-family:'Nunito',sans-serif;transition:transform .15s,background .2s;letter-spacing:.3px;margin-bottom:12px;}
+#carer-section{width:100%;margin-bottom:8px;}
+#carer-toggle{width:100%;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:'Nunito',sans-serif;color:var(--text2);font-size:12px;font-weight:700;text-align:left;}
+#carer-body{display:none;padding:12px 14px;background:rgba(192,132,252,.08);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;font-size:12px;color:var(--text2);line-height:1.7;}
+#carer-body.open{display:block;}
 
-/* ROUNDS */
-#rounds-bar{display:flex;gap:6px;margin-bottom:20px;}
-.round-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:all .5s;}
-.round-dot.done{background:var(--accent);}
-.round-dot.current{background:var(--accent);transform:scale(1.4);}
+/* DONE */
+#done{align-items:center;text-align:center;padding-top:40px;gap:12px;}
+#done-buddy{font-size:80px;animation:doneBounce .8s ease infinite alternate;}
+@keyframes doneBounce{0%{transform:translateY(0)}100%{transform:translateY(-10px)}}
+#done-stars{font-size:32px;letter-spacing:6px;}
+#done-title{font-size:28px;font-weight:900;color:var(--acc);}
+#done-msg{font-size:14px;color:var(--text2);max-width:300px;line-height:1.6;}
+#done-fact{padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:14px;font-size:13px;color:var(--soft);font-weight:600;line-height:1.5;max-width:320px;}
+#done-btns{display:flex;gap:10px;width:100%;}
+#btn-again,#btn-home{flex:1;padding:14px;font-size:15px;font-weight:900;border-radius:20px;cursor:pointer;font-family:'Nunito',sans-serif;border:none;transition:transform .15s;}
+#btn-again{background:var(--acc);color:white;}
+#btn-home{background:var(--card);color:var(--text);border:1.5px solid var(--border);}
 
-/* BUDDY + CIRCLE */
-#breath-stage{position:relative;width:260px;height:260px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;}
-#outer-ring{position:absolute;width:260px;height:260px;border-radius:50%;border:1.5px solid rgba(192,132,252,.2);}
-#progress-ring{position:absolute;width:260px;height:260px;}
-#progress-ring circle{fill:none;stroke-linecap:round;transform-origin:center;transform:rotate(-90deg);}
-#prog-track{stroke:rgba(255,255,255,.08);stroke-width:4;}
-#prog-fill{stroke:var(--accent);stroke-width:4;transition:stroke-dashoffset .15s linear,stroke .5s;}
-#breath-circle{position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(192,132,252,.12);border:2px solid rgba(192,132,252,.3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;transition:transform 0s,background 0s;}
-#buddy-display{font-size:52px;line-height:1;transition:transform .3s;}
-#phase-count{font-size:28px;font-weight:800;color:var(--text);line-height:1;}
-
-/* PHASE TEXT */
-#phase-area{text-align:center;margin-bottom:18px;min-height:56px;}
-#phase-text{font-size:22px;font-weight:800;color:var(--text);letter-spacing:.3px;transition:opacity .4s;}
-#phase-sub{font-size:13px;color:var(--text2);margin-top:5px;transition:opacity .4s;}
-
-/* AFFIRMATION */
-#affirmation-box{width:100%;padding:12px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:16px;text-align:center;margin-bottom:18px;min-height:52px;display:flex;align-items:center;justify-content:center;}
-#affirmation-text{font-size:14px;font-weight:600;color:var(--soft);line-height:1.5;transition:opacity .8s;}
-
-/* START / PAUSE */
-#start-btn{padding:14px 40px;font-size:17px;font-weight:800;background:var(--accent);color:white;border:none;border-radius:28px;cursor:pointer;font-family:'Nunito',sans-serif;transition:transform .15s,background .2s;letter-spacing:.3px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-#start-btn:hover{transform:scale(1.04);}
-#start-btn:disabled{background:rgba(192,132,252,.3);cursor:not-allowed;transform:none;}
-
-/* DONE SCREEN */
-#done-screen{display:none;width:100%;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:30px 0;}
-#done-buddy{font-size:72px;animation:doneBounce 1s ease infinite alternate;}
-@keyframes doneBounce{0%{transform:translateY(0)}100%{transform:translateY(-12px)}}
-#done-msg{font-size:24px;font-weight:800;color:var(--text);}
-#done-sub{font-size:14px;color:var(--text2);line-height:1.6;max-width:320px;}
-#done-stars{font-size:28px;letter-spacing:4px;}
-#done-again,#done-home{padding:13px 30px;font-size:15px;font-weight:800;border-radius:24px;cursor:pointer;font-family:'Nunito',sans-serif;border:none;transition:transform .15s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-#done-again{background:var(--accent);color:white;margin-right:10px;}
-#done-home{background:var(--card);color:var(--text);border:1.5px solid var(--border);}
-#done-again:hover,#done-home:hover{transform:scale(1.03);}
-
-/* MOBILE */
 @media(max-width:380px){
-  #breath-stage{width:220px;height:220px;}
-  #outer-ring{width:220px;height:220px;}
-  #progress-ring{width:220px;height:220px;}
-  #breath-circle{width:136px;height:136px;}
-  #buddy-display{font-size:44px;}
-  #phase-count{font-size:24px;}
-  #phase-text{font-size:18px;}
-  .buddy-card{min-width:60px;padding:10px 8px;}
-  .buddy-emoji{font-size:28px;}
+  #breath-stage{width:200px;height:200px;}
+  #ring-svg{width:200px;height:200px;}
+  #ring-track,#ring-prog{r:94;cx:100;cy:100;}
+  #breath-ball{width:124px;height:124px;}
+  #buddy-big{font-size:44px;}
+  #count-big{font-size:34px;}
+  #phase-word{font-size:22px;}
 }
-
 @media(min-width:600px){
-  #app{max-width:600px;padding:0 28px 28px;}
-  #home-hero h1{font-size:34px;}
-  #home-hero p{font-size:16px;}
-  .buddy-card{min-width:82px;padding:16px 14px;}
-  .buddy-emoji{font-size:40px;}
-  .buddy-name{font-size:13px;}
-  .ex-card{padding:20px 22px;}
-  .ex-icon{font-size:34px;}
+  #breath-stage{width:280px;height:280px;}
+  #ring-svg{width:280px;height:280px;}
+  #breath-ball{width:176px;height:176px;}
+  #buddy-big{font-size:64px;}
+  #count-big{font-size:50px;}
+  #phase-word{font-size:30px;}
   .ex-name{font-size:17px;}
-  .ex-desc{font-size:14px;}
-  #breath-stage{width:300px;height:300px;}
-  #outer-ring{width:300px;height:300px;}
-  #progress-ring{width:300px;height:300px;}
-  #breath-circle{width:186px;height:186px;}
-  #buddy-display{font-size:62px;}
-  #phase-count{font-size:34px;}
-  #phase-text{font-size:26px;}
-  #affirmation-text{font-size:16px;}
-  #start-btn{padding:17px 48px;font-size:19px;}
-}
-@media(min-width:1024px){
-  #app{max-width:700px;}
-  #breath-stage{width:340px;height:340px;}
-  #outer-ring{width:340px;height:340px;}
-  #progress-ring{width:340px;height:340px;}
-  #breath-circle{width:210px;height:210px;}
-  #buddy-display{font-size:70px;}
-  #phase-text{font-size:28px;}
+  #home-hero h1{font-size:30px;}
 }
 </style>
 </head>
 <body>
-<div id="install-banner" style="display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:500;background:rgba(26,16,64,0.97);color:white;padding:10px 16px;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.5);font-family:inherit;border-radius:28px;white-space:nowrap;border:1px solid rgba(255,255,255,.15);">
-  <span style="font-size:22px">✨</span>
-  <div style="flex:1"><div style="font-size:14px;font-weight:800">Add to Home Screen</div><div style="font-size:11px;opacity:.8">Play offline anytime!</div></div>
-  <button id="install-btn" style="background:white;color:#1A1040;border:none;border-radius:20px;padding:7px 16px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;">Install</button>
-  <button id="install-dismiss" style="background:transparent;border:none;color:white;font-size:20px;cursor:pointer;padding:0 4px;">✕</button>
-</div>
-<canvas id="bg-canvas"></canvas>
-
+<div id="stars-bg"></div>
 <div id="app">
+
   <div id="topbar">
-    <div id="app-title">🌬️ Breathe with Me</div>
-    <div id="ctrls">
-      <button class="ctrl on" id="btn-snd" title="Sound">🔊</button>
-      <button class="ctrl" id="btn-slow" title="Slow mode">🐢</button>
+    <div id="app-logo">🌬️ Breathe with Me</div>
+    <div id="top-btns">
+      <button class="top-btn on" id="btn-snd">
+        <span class="top-btn-icon">🔊</span>
+        <span class="top-btn-lbl">Sound</span>
+      </button>
+      <button class="top-btn" id="btn-slow">
+        <span class="top-btn-icon">🐌</span>
+        <span class="top-btn-lbl">Slow</span>
+      </button>
     </div>
   </div>
 
-  <!-- HOME SCREEN -->
   <div id="home" class="screen active">
-    <div id="ios-tip" style="display:none;position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:9998;background:#2D1B69;color:white;padding:10px 16px;border-radius:12px;font-size:12px;font-weight:600;text-align:center;max-width:300px;box-shadow:0 4px 20px rgba(0,0,0,.4);">
-  📱 iPhone/iPad: tap Share <strong>⎋</strong> then <strong>Add to Home Screen</strong>
-</div>
-<div id="home-hero">
+    <div id="home-hero">
       <h1>Let's breathe together 🌬️</h1>
-      <p>Choose a friend and a breathing exercise.<br>There's no rush — go at your own pace.</p>
+      <p>Choose a friend, then choose a breathing exercise.<br>You can stop anytime — there is no rush.</p>
     </div>
-
-    <div class="buddy-row" id="buddy-row"></div>
-
-    <div class="exercises-label">Choose an exercise</div>
+    <div class="sec-lbl">Choose your friend</div>
+    <div id="buddy-scroll"></div>
+    <div class="sec-lbl">Choose an exercise</div>
     <div id="ex-list"></div>
   </div>
 
-  <!-- BREATHING SCREEN -->
   <div id="breathing" class="screen">
-    <div id="breath-topbar">
+    <div id="breath-nav">
       <button id="back-btn">←</button>
-      <div id="ex-title-bar">
-        <div id="ex-title-name">Box Breathing</div>
-        <div id="ex-title-sub">4 rounds</div>
+      <div id="ex-header">
+        <div id="ex-hname">Box Breathing</div>
+        <div id="ex-hfeel">Helps when you feel worried</div>
       </div>
-      <div style="width:36px"></div>
+      <div style="width:42px"></div>
     </div>
-
-    <div id="rounds-bar"></div>
-
+    <div id="next-up-bar">
+      <span id="next-up-lbl">Next:</span>
+      <span id="next-up-val">Hold for 4</span>
+    </div>
+    <div id="round-progress">
+      <div id="round-track"><div id="round-fill" style="width:0%"></div></div>
+      <div id="round-lbl">Round 1 of 4</div>
+    </div>
     <div id="breath-stage">
-      <div id="outer-ring"></div>
-      <svg id="progress-ring" viewBox="0 0 260 260">
-        <circle id="prog-track" cx="130" cy="130" r="126"/>
-        <circle id="prog-fill" cx="130" cy="130" r="126"/>
+      <svg id="ring-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <circle id="ring-track" cx="120" cy="120" r="114"/>
+        <circle id="ring-prog" cx="120" cy="120" r="114"/>
       </svg>
-      <div id="breath-circle">
-        <div id="buddy-display">🌙</div>
-        <div id="phase-count">4</div>
+      <div id="breath-ball">
+        <div id="buddy-big">🌙</div>
+        <div id="count-big"></div>
       </div>
     </div>
-
     <div id="phase-area">
-      <div id="phase-text">Ready?</div>
-      <div id="phase-sub">Tap Start when you are ready</div>
+      <div id="phase-word">Ready?</div>
+      <div id="phase-instruction">Tap Start when you feel ready</div>
+      <div id="stop-note">You can stop anytime — just tap Stop</div>
     </div>
-
-    <div id="affirmation-box">
-      <div id="affirmation-text">You are doing great 💜</div>
+    <div id="affirm-box">
+      <div id="affirm-text">You are doing something kind for yourself 💜</div>
     </div>
-
     <button id="start-btn">Start ▶</button>
-
-    <div id="done-screen">
-      <div id="done-buddy">🌙</div>
-      <div id="done-stars">⭐⭐⭐</div>
-      <div id="done-msg">Well done!</div>
-      <div id="done-sub">You finished all the rounds. You should feel proud of yourself.</div>
-      <div>
-        <button id="done-again">Again 🔄</button>
-        <button id="done-home">Home 🏠</button>
-      </div>
+    <div id="carer-section">
+      <button id="carer-toggle">📋 Carer and Teacher notes <span id="carer-arrow">▼</span></button>
+      <div id="carer-body"></div>
     </div>
   </div>
+
+  <div id="done" class="screen">
+    <div id="done-buddy">🌙</div>
+    <div id="done-stars">⭐⭐⭐</div>
+    <div id="done-title">Well done!</div>
+    <div id="done-msg">You finished all the rounds. That took real effort and you should feel very proud.</div>
+    <div id="done-fact"></div>
+    <div id="done-btns">
+      <button id="btn-again">Again 🔄</button>
+      <button id="btn-home">Home 🏠</button>
+    </div>
+  </div>
+
 </div>
-
 <script>
-/* ═══════════════════════════════
-   DATA
-═══════════════════════════════ */
-const BUDDIES = [
-  {e:'🌙',name:'Moon'}, {e:'⭐',name:'Star'}, {e:'🌈',name:'Rainbow'},
-  {e:'🦋',name:'Flutter'},{e:'🐋',name:'Whaley'},{e:'🌸',name:'Blossom'},
+(function(){
+  const bg=document.getElementById('stars-bg');
+  for(let i=0;i<55;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=.8+Math.random()*2.2;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${3+Math.random()*5}s;--delay:${Math.random()*6}s;--op:${.12+Math.random()*.28};`;
+    bg.appendChild(s);
+  }
+})();
+
+const BUDDIES=[{e:'🌙',name:'Moon'},{e:'⭐',name:'Star'},{e:'🌈',name:'Rainbow'},{e:'🦋',name:'Flutter'},{e:'🐋',name:'Whaley'},{e:'🌸',name:'Blossom'}];
+const EXERCISES=[
+  {id:'box',name:'Box Breathing',icon:'📦',iconBg:'rgba(129,140,248,.2)',feeling:'Helps when you feel worried or upset',desc:'Breathe in, hold, breathe out, hold — like drawing a box.',tag:'Calming',tagClass:'tag-calm',rounds:4,color:'#818CF8',
+   carer:'Say softly: "Breathe in with me... hold it gently... breathe out slowly." Sit close and breathe visibly yourself — this is very reassuring for autistic children.',
+   fact:'Box breathing sends a calm signal to your brain. It works every single time you use it.',
+   phases:[{label:'Breathe in',instr:'Breathe in slowly through your nose',counts:4,type:'in',scale:1.28,bg:'rgba(129,140,248,.2)'},{label:'Hold',instr:'Keep the breath gently inside',counts:4,type:'hold',scale:1.28,bg:'rgba(129,140,248,.1)'},{label:'Breathe out',instr:'Breathe out slowly through your mouth',counts:4,type:'out',scale:1.0,bg:'rgba(129,140,248,.05)'},{label:'Hold',instr:'Rest gently before the next breath',counts:4,type:'hold2',scale:1.0,bg:'rgba(129,140,248,.05)'}]},
+  {id:'deep',name:'Big Belly Breath',icon:'🌊',iconBg:'rgba(52,211,153,.2)',feeling:'Helps when you feel scared or overwhelmed',desc:'Fill your belly up big like a balloon, then let it go.',tag:'Easy',tagClass:'tag-easy',rounds:5,color:'#34D399',
+   carer:'Place your hand on the child\'s tummy gently if they are comfortable. Say: "Can you make my hand rise up? Good! Now let it fall slowly." Physical feedback is very helpful for autistic children learning body awareness.',
+   fact:'Big belly breaths slow your heart rate in just 3 breaths. Your body knows exactly what to do.',
+   phases:[{label:'Breathe in',instr:'Fill your belly up like a big balloon',counts:5,type:'in',scale:1.32,bg:'rgba(52,211,153,.18)'},{label:'Breathe out',instr:'Let all the air out slowly like a deflating balloon',counts:5,type:'out',scale:1.0,bg:'rgba(52,211,153,.05)'}]},
+  {id:'478',name:'4-7-8 Breathing',icon:'🌙',iconBg:'rgba(192,132,252,.2)',feeling:'Helps when you cannot sleep or feel very anxious',desc:'Breathe in 4, hold 7, breathe out for 8. Used by doctors.',tag:'Focus',tagClass:'tag-focus',rounds:4,color:'#C084FC',
+   carer:'Best done lying down or in a comfortable chair. Say: "This is what doctors use to help people feel calm." The 8-count out-breath is the most important part — it activates the body\'s natural rest system.',
+   fact:'The long out-breath activates your body\'s natural calm-down system. Science says it works.',
+   phases:[{label:'Breathe in',instr:'Breathe in quietly through your nose',counts:4,type:'in',scale:1.25,bg:'rgba(192,132,252,.18)'},{label:'Hold',instr:'Hold your breath gently',counts:7,type:'hold',scale:1.25,bg:'rgba(192,132,252,.1)'},{label:'Breathe out',instr:'Breathe out through your mouth — make a whooshing sound!',counts:8,type:'out',scale:1.0,bg:'rgba(192,132,252,.05)'}]},
+  {id:'flower',name:'Smell the Flowers',icon:'🌸',iconBg:'rgba(244,114,182,.2)',feeling:'Helps when you feel angry or frustrated',desc:'Smell a flower in, blow out a candle. Easy and fun!',tag:'Easy',tagClass:'tag-easy',rounds:5,color:'#F472B6',
+   carer:'Hold up a real or pretend flower and say: "Smell the flower with me!" Then hold up one finger like a candle: "Blow it out gently." Making it physical and playful works very well for younger autistic children.',
+   fact:'Using your imagination while breathing makes the calming effect even stronger than breathing alone.',
+   phases:[{label:'Smell the flower 🌸',instr:'Breathe in slowly through your nose',counts:3,type:'in',scale:1.2,bg:'rgba(244,114,182,.18)'},{label:'Blow the candle 🕯️',instr:'Breathe out gently through your mouth',counts:4,type:'out',scale:1.0,bg:'rgba(244,114,182,.05)'}]},
+  {id:'star',name:'Star Breathing',icon:'⭐',iconBg:'rgba(251,191,36,.2)',feeling:'Helps when you need to focus or feel distracted',desc:'Trace a five-pointed star! In on one side, out on the next.',tag:'Focus',tagClass:'tag-focus',rounds:5,color:'#FBBF24',
+   carer:'Draw a big star on paper and let the child trace it with their finger: up = breathe in, down = breathe out. The visual tracing gives autistic children something concrete to focus on, making breathing much easier to follow.',
+   fact:'Star breathing gives your brain two jobs at once — breathing AND tracing — which stops worrying thoughts.',
+   phases:[{label:'Breathe in ✨',instr:'Trace UP the star point — breathe in!',counts:4,type:'in',scale:1.25,bg:'rgba(251,191,36,.15)'},{label:'Breathe out 💫',instr:'Trace DOWN the star point — breathe out!',counts:4,type:'out',scale:1.0,bg:'rgba(251,191,36,.05)'}]},
 ];
+const AFFIRMATIONS=['You are doing something kind for yourself 💜','Every breath makes you a little calmer 🌊','You are safe right now 🌙','You are so brave for trying this ⭐','Your body knows exactly how to calm down 🌬️','You are wonderful just as you are 🌸','Take it one breath at a time 🦋','Each breath is a fresh start 🌈','You are not alone — we are doing this together 💜','You are doing brilliantly 🌟','It is okay to take your time 😌','You are getting calmer with every breath 💫'];
 
-const AFFIRMATIONS = [
-  "You are doing great 💜",
-  "You are safe and calm 🌙",
-  "Breathe in peace, breathe out worry 🌬️",
-  "You are so brave and strong ⭐",
-  "Every breath makes you calmer 🌊",
-  "You are wonderful just as you are 🌸",
-  "Well done, keep going 💪",
-  "You are relaxing beautifully 🦋",
-  "Feel your body getting calmer 😌",
-  "You are doing something kind for yourself 💜",
-  "Each breath is a fresh start 🌈",
-  "Your calm is growing 🌿",
-];
+let selBuddy=BUDDIES[0],selEx=null,soundOn=true,slowMode=false;
+let running=false,currentRound=0,currentPhase=0,currentCount=0;
+let phaseTimer=null,countTimer=null,progInterval=null,affirmIdx=0,actx=null;
+const CIRC=2*Math.PI*114;
 
-const EXERCISES = [
-  {
-    id:'box', name:'Box Breathing', icon:'📦',
-    desc:'Breathe in, hold, breathe out, hold. A classic calming pattern.',
-    tag:'Calming', tagClass:'tag-calm',
-    rounds:4, color:'#818CF8',
-    phases:[
-      {label:'Breathe in',  sub:'Through your nose', counts:4, type:'in',   circleScale:1.25, bg:'rgba(129,140,248,.18)'},
-      {label:'Hold',        sub:'Keep still',        counts:4, type:'hold', circleScale:1.25, bg:'rgba(129,140,248,.10)'},
-      {label:'Breathe out', sub:'Through your mouth',counts:4, type:'out',  circleScale:1.0,  bg:'rgba(129,140,248,.06)'},
-      {label:'Hold',        sub:'Keep still',        counts:4, type:'hold2',circleScale:1.0,  bg:'rgba(129,140,248,.06)'},
-    ]
-  },
-  {
-    id:'deep', name:'Deep Belly Breath', icon:'🌊',
-    desc:'Big slow breaths that fill your whole belly. Super calming.',
-    tag:'Easy', tagClass:'tag-easy',
-    rounds:5, color:'#34D399',
-    phases:[
-      {label:'Breathe in',  sub:'Fill your belly up like a balloon', counts:5, type:'in',  circleScale:1.3,  bg:'rgba(52,211,153,.15)'},
-      {label:'Breathe out', sub:'Let all the air out slowly',        counts:5, type:'out', circleScale:1.0,  bg:'rgba(52,211,153,.06)'},
-    ]
-  },
-  {
-    id:'478', name:'4-7-8 Breathing', icon:'🌙',
-    desc:'Breathe in 4, hold 7, out for 8. Helps with worry and sleep.',
-    tag:'Focus', tagClass:'tag-focus',
-    rounds:4, color:'#C084FC',
-    phases:[
-      {label:'Breathe in',  sub:'Nice and slow',         counts:4, type:'in',   circleScale:1.25, bg:'rgba(192,132,252,.18)'},
-      {label:'Hold',        sub:'Keep the breath inside', counts:7, type:'hold', circleScale:1.25, bg:'rgba(192,132,252,.10)'},
-      {label:'Breathe out', sub:'Make a whooshing sound', counts:8, type:'out',  circleScale:1.0,  bg:'rgba(192,132,252,.06)'},
-    ]
-  },
-  {
-    id:'flower', name:'Smell the Flowers', icon:'🌸',
-    desc:'Smell a flower in, blow out a candle. Fun and easy!',
-    tag:'Easy', tagClass:'tag-easy',
-    rounds:5, color:'#F472B6',
-    phases:[
-      {label:'Smell the flower 🌸', sub:'Breathe in through your nose',  counts:3, type:'in',  circleScale:1.2,  bg:'rgba(244,114,182,.18)'},
-      {label:'Blow the candle 🕯️',  sub:'Breathe out through your mouth',counts:4, type:'out', circleScale:1.0,  bg:'rgba(244,114,182,.06)'},
-    ]
-  },
-  {
-    id:'star', name:'Star Breathing', icon:'⭐',
-    desc:'Trace a star shape! In on one side, out on the next.',
-    tag:'Focus', tagClass:'tag-focus',
-    rounds:5, color:'#FBBF24',
-    phases:[
-      {label:'Breathe in ✨',  sub:'Trace up the star point',   counts:4, type:'in',   circleScale:1.25, bg:'rgba(251,191,36,.15)'},
-      {label:'Breathe out 💫', sub:'Trace down the star point', counts:4, type:'out',  circleScale:1.0,  bg:'rgba(251,191,36,.06)'},
-    ]
-  },
-];
-
-/* ═══════════════════════════════
-   STATE
-═══════════════════════════════ */
-let selBuddy = BUDDIES[0];
-let selEx = null;
-let soundOn = true;
-let slowMode = false;
-let running = false;
-let paused = false;
-let currentRound = 0;
-let currentPhase = 0;
-let currentCount = 0;
-let phaseTimer = null;
-let countTimer = null;
-let affirmIdx = 0;
-let actx = null;
-let circumference = 2 * Math.PI * 126;
-let totalPhaseDuration = 0;
-let phaseElapsed = 0;
-let phaseInterval = null;
-
-/* ═══════════════════════════════
-   AUDIO
-═══════════════════════════════ */
-function getAC(){ if(!actx) actx=new(window.AudioContext||window.webkitAudioContext)(); return actx; }
-
-function playPhaseSound(type){
-  if(!soundOn) return;
+function getAC(){if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();return actx;}
+function playTone(t){
+  if(!soundOn)return;
   try{
     const ac=getAC();
-    const freqMap={in:[220,277,330],hold:[330,330],out:[330,262,196],hold2:[196,196]};
-    const freqs=freqMap[type]||[220];
-    freqs.forEach((f,i)=>{
-      const o=ac.createOscillator(),g=ac.createGain();
-      o.connect(g);g.connect(ac.destination);
-      o.type='sine';o.frequency.value=f;
-      const t=ac.currentTime+i*.18;
-      g.gain.setValueAtTime(0,t);
-      g.gain.linearRampToValueAtTime(.1,t+.1);
-      g.gain.exponentialRampToValueAtTime(.001,t+.5);
-      o.start(t);o.stop(t+.55);
-    });
+    const p=(f,s,d,v)=>{const o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,ac.currentTime+s);g.gain.linearRampToValueAtTime(v,ac.currentTime+s+.08);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+s+d);o.start(ac.currentTime+s);o.stop(ac.currentTime+s+d);};
+    if(t==='in'){p(262,0,.6,.1);p(330,.18,.5,.08);p(392,.36,.4,.07);}
+    else if(t==='out'){p(392,0,.5,.08);p(330,.18,.5,.07);p(262,.36,.6,.1);}
+    else if(t==='hold'||t==='hold2'){p(310,0,.35,.06);}
+    else if(t==='tick'){p(440,0,.08,.04);}
+    else if(t==='done'){[523,659,784,1047].forEach((f,i)=>p(f,i*.12,.3,.12));}
   }catch(e){}
 }
 
-function playCountTick(){
-  if(!soundOn) return;
-  try{
-    const ac=getAC();
-    const o=ac.createOscillator(),g=ac.createGain();
-    o.connect(g);g.connect(ac.destination);
-    o.type='sine';o.frequency.value=440;
-    g.gain.setValueAtTime(.06,ac.currentTime);
-    g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+.12);
-    o.start();o.stop(ac.currentTime+.12);
-  }catch(e){}
+function setRing(pct,col){
+  const rp=document.getElementById('ring-prog');
+  rp.style.strokeDasharray=CIRC;
+  rp.style.strokeDashoffset=CIRC-(pct*CIRC);
+  rp.style.stroke=col||'#C084FC';
+  rp.style.transition='stroke-dashoffset .2s linear,stroke .5s';
 }
 
-function playDone(){
-  if(!soundOn) return;
-  try{
-    const ac=getAC();
-    [523,659,784,1047].forEach((f,i)=>{
-      const o=ac.createOscillator(),g=ac.createGain();
-      o.connect(g);g.connect(ac.destination);
-      o.type='sine';o.frequency.value=f;
-      const t=ac.currentTime+i*.14;
-      g.gain.setValueAtTime(.12,t);
-      g.gain.exponentialRampToValueAtTime(.001,t+.4);
-      o.start(t);o.stop(t+.45);
-    });
-  }catch(e){}
+function addBtn(id,fn){
+  const el=document.getElementById(id);if(!el)return;
+  el.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();fn(e);});
+  el.addEventListener('click',function(e){e.stopPropagation();fn(e);});
 }
 
-/* ═══════════════════════════════
-   BACKGROUND CANVAS
-═══════════════════════════════ */
-const bgCanvas=document.getElementById('bg-canvas');
-const bgCtx=bgCanvas.getContext('2d');
-let bgStars=[];
-let bgW=0,bgH=0;
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 
-function resizeBg(){
-  bgW=bgCanvas.width=window.innerWidth;
-  bgH=bgCanvas.height=window.innerHeight;
-  bgStars=[];
-  for(let i=0;i<80;i++) bgStars.push({
-    x:Math.random()*bgW, y:Math.random()*bgH,
-    r:.4+Math.random()*1.8,
-    a:Math.random(), va:(Math.random()-.5)*.006,
-    hue:200+Math.random()*60
-  });
+function fadePhase(word,instr){
+  const pw=document.getElementById('phase-word'),pi=document.getElementById('phase-instruction');
+  pw.style.opacity='0';pi.style.opacity='0';
+  setTimeout(()=>{pw.textContent=word;pi.textContent=instr;pw.style.opacity='1';pi.style.opacity='1';},300);
 }
 
-function drawBg(){
-  const grad=bgCtx.createLinearGradient(0,0,0,bgH);
-  grad.addColorStop(0,'#1A1040');
-  grad.addColorStop(.5,'#2D1B69');
-  grad.addColorStop(1,'#0D0A2A');
-  bgCtx.fillStyle=grad;
-  bgCtx.fillRect(0,0,bgW,bgH);
-  bgStars.forEach(s=>{
-    s.a+=s.va; if(s.a>1||s.a<0)s.va*=-1;
-    bgCtx.beginPath();
-    bgCtx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    bgCtx.fillStyle=`hsla(${s.hue},80%,85%,${Math.max(0,s.a)})`;
-    bgCtx.fill();
-  });
-  requestAnimationFrame(drawBg);
+function showAffirmation(){
+  const el=document.getElementById('affirm-text');
+  el.style.opacity='0';
+  setTimeout(()=>{el.textContent=AFFIRMATIONS[affirmIdx%AFFIRMATIONS.length];affirmIdx++;el.style.opacity='1';},500);
 }
 
-window.addEventListener('resize',resizeBg);
-resizeBg(); drawBg();
-
-/* ═══════════════════════════════
-   PROGRESS RING
-═══════════════════════════════ */
-function initRing(stageSize){
-  const r=stageSize===220?106:126;
-  circumference=2*Math.PI*r;
-  document.getElementById('prog-track').setAttribute('r',r);
-  document.getElementById('prog-fill').setAttribute('r',r);
-  const cx=stageSize/2, cy=stageSize/2;
-  document.getElementById('prog-track').setAttribute('cx',cx);
-  document.getElementById('prog-track').setAttribute('cy',cy);
-  document.getElementById('prog-fill').setAttribute('cx',cx);
-  document.getElementById('prog-fill').setAttribute('cy',cy);
-  document.getElementById('prog-fill').style.strokeDasharray=circumference;
-  document.getElementById('prog-fill').style.strokeDashoffset=circumference;
+function updateNextUp(phaseIdx){
+  if(!selEx)return;
+  const next=selEx.phases[(phaseIdx+1)%selEx.phases.length];
+  const c=slowMode?Math.ceil(next.counts*1.5):next.counts;
+  document.getElementById('next-up-val').textContent=next.label+' for '+c;
 }
 
-function setRingProgress(pct, color){
-  const offset=circumference-(pct*circumference);
-  document.getElementById('prog-fill').style.strokeDashoffset=offset;
-  document.getElementById('prog-fill').style.stroke=color||selEx?.color||'#C084FC';
+function getTotalTime(){let t=0;selEx.phases.forEach(p=>{t+=(slowMode?Math.ceil(p.counts*1.5):p.counts)*1000;});return t*selEx.rounds;}
+function getElapsed(){
+  let t=0;
+  for(let r=0;r<currentRound;r++)selEx.phases.forEach(p=>{t+=(slowMode?Math.ceil(p.counts*1.5):p.counts)*1000;});
+  for(let ph=0;ph<currentPhase;ph++)t+=(slowMode?Math.ceil(selEx.phases[ph].counts*1.5):selEx.phases[ph].counts)*1000;
+  return t;
 }
 
-/* ═══════════════════════════════
-   BUILD HOME
-═══════════════════════════════ */
-function buildHome(){
-  // buddies
-  const br=document.getElementById('buddy-row');
-  br.innerHTML='';
-  BUDDIES.forEach(b=>{
-    const d=document.createElement('div');
-    d.className='buddy-card'+(b.e===selBuddy.e?' sel':'');
-    d.innerHTML=`<span class="buddy-emoji">${b.e}</span><span class="buddy-name">${b.name}</span>`;
-    (function(btn,buddy){
-      function _bc(e){e.stopPropagation();selBuddy=buddy;document.querySelectorAll('.buddy-card').forEach(x=>x.classList.remove('sel'));btn.classList.add('sel');document.getElementById('buddy-display').textContent=buddy.e;document.getElementById('done-buddy').textContent=buddy.e;}
-      btn.addEventListener('touchend',function(e){e.preventDefault();_bc(e);});
-      btn.addEventListener('click',_bc);
-    })(d,b);
-    br.appendChild(d);
-  });
-  // exercises
-  const el=document.getElementById('ex-list');
-  el.innerHTML='';
-  EXERCISES.forEach(ex=>{
-    const d=document.createElement('div');
-    d.className='ex-card';
-    d.innerHTML=`
-      <div class="ex-icon">${ex.icon}</div>
-      <div class="ex-info">
-        <div class="ex-name">${ex.name}</div>
-        <div class="ex-desc">${ex.desc}</div>
-        <span class="ex-tag ${ex.tagClass}">${ex.tag} · ${ex.rounds} rounds</span>
-      </div>`;
-    (function(card,exercise){
-      function _ec(e){e.stopPropagation();startExercise(exercise);}
-      card.addEventListener('touchend',function(e){e.preventDefault();_ec(e);});
-      card.addEventListener('click',_ec);
-    })(d,ex);
-    el.appendChild(d);
-  });
+function runPhase(){
+  if(!running)return;
+  const phase=selEx.phases[currentPhase];
+  const counts=slowMode?Math.ceil(phase.counts*1.5):phase.counts;
+  const dur=counts*1000;
+  fadePhase(phase.label,phase.instr);
+  playTone(phase.type);
+  const ball=document.getElementById('breath-ball');
+  ball.style.transition=`transform ${dur}ms ease-in-out,background ${dur}ms ease-in-out`;
+  ball.style.transform=`scale(${phase.scale})`;
+  ball.style.background=phase.bg;
+  currentCount=counts;
+  document.getElementById('count-big').textContent=currentCount;
+  clearInterval(countTimer);
+  countTimer=setInterval(()=>{currentCount--;if(currentCount<=0){clearInterval(countTimer);return;}document.getElementById('count-big').textContent=currentCount;playTone('tick');},1000);
+  clearInterval(progInterval);
+  const elapsed=getElapsed(),total=getTotalTime();let te=0;
+  progInterval=setInterval(()=>{te+=50;setRing(Math.min(1,(elapsed+te)/total),selEx.color);if(te>=dur)clearInterval(progInterval);},50);
+  document.getElementById('round-fill').style.width=(currentRound/selEx.rounds*100)+'%';
+  document.getElementById('round-lbl').textContent='Round '+(currentRound+1)+' of '+selEx.rounds;
+  updateNextUp(currentPhase);
+  clearTimeout(phaseTimer);
+  phaseTimer=setTimeout(()=>{
+    currentPhase++;
+    if(currentPhase>=selEx.phases.length){currentPhase=0;currentRound++;if(currentRound>=selEx.rounds){finishExercise();return;}showAffirmation();}
+    runPhase();
+  },dur);
 }
 
-/* ═══════════════════════════════
-   START EXERCISE
-═══════════════════════════════ */
+function finishExercise(){
+  running=false;clearTimeout(phaseTimer);clearInterval(countTimer);clearInterval(progInterval);
+  const ball=document.getElementById('breath-ball');
+  ball.style.transition='transform .8s ease,background .8s ease';
+  ball.style.transform='scale(1)';ball.style.background='rgba(192,132,252,.18)';
+  setRing(1,selEx.color);
+  document.getElementById('round-fill').style.width='100%';
+  document.getElementById('round-lbl').textContent='All done!';
+  fadePhase('All done! 🎉','You finished every round — amazing!');
+  document.getElementById('count-big').textContent='';
+  playTone('done');
+  setTimeout(()=>showScreen('done'),1500);
+}
+
 function startExercise(ex){
-  selEx=ex;
-  currentRound=0; currentPhase=0; currentCount=ex.phases[0].counts; running=false;
-  document.getElementById('ex-title-name').textContent=ex.name;
-  document.getElementById('ex-title-sub').textContent=ex.rounds+' rounds · '+selBuddy.name+' is with you';
-  document.getElementById('buddy-display').textContent=selBuddy.e;
+  selEx=ex;currentRound=0;currentPhase=0;running=false;
+  document.getElementById('ex-hname').textContent=ex.name;
+  document.getElementById('ex-hfeel').textContent=ex.feeling;
+  document.getElementById('buddy-big').textContent=selBuddy.e;
   document.getElementById('done-buddy').textContent=selBuddy.e;
-  document.getElementById('phase-text').textContent='Ready?';
-  document.getElementById('phase-sub').textContent='Tap Start when you feel ready';
-  document.getElementById('phase-count').textContent='';
+  document.getElementById('phase-word').textContent='Ready?';
+  document.getElementById('phase-instruction').textContent='Tap Start when you feel ready';
+  document.getElementById('count-big').textContent='';
   document.getElementById('start-btn').textContent='Start ▶';
-  document.getElementById('start-btn').disabled=false;
   document.getElementById('start-btn').style.background=ex.color;
-  document.getElementById('done-screen').style.display='none';
-  document.getElementById('start-btn').style.display='block';
-  document.getElementById('phase-area').style.display='block';
-  document.getElementById('affirmation-box').style.display='flex';
-  document.getElementById('rounds-bar').style.display='flex';
-  resetCircle();
-  buildRoundDots();
-  setRingProgress(0, ex.color);
+  document.getElementById('round-fill').style.width='0%';
+  document.getElementById('round-lbl').textContent='Round 1 of '+ex.rounds;
+  document.getElementById('done-fact').textContent=ex.fact;
+  document.getElementById('carer-body').textContent=ex.carer;
+  document.getElementById('carer-body').classList.remove('open');
+  document.getElementById('carer-arrow').textContent='▼';
+  const ball=document.getElementById('breath-ball');
+  ball.style.transition='none';ball.style.transform='scale(1)';ball.style.background='rgba(192,132,252,.12)';
+  setRing(0,ex.color);
+  updateNextUp(-1);
   showAffirmation();
   showScreen('breathing');
 }
 
-function buildRoundDots(){
-  const bar=document.getElementById('rounds-bar');
-  bar.innerHTML='';
-  for(let i=0;i<selEx.rounds;i++){
+function buildHome(){
+  const bs=document.getElementById('buddy-scroll');
+  bs.innerHTML='';
+  BUDDIES.forEach(b=>{
     const d=document.createElement('div');
-    d.className='round-dot'+(i===0?' current':'');
-    d.id='rd-'+i;
-    bar.appendChild(d);
-  }
-}
-
-function updateRoundDots(){
-  for(let i=0;i<selEx.rounds;i++){
-    const d=document.getElementById('rd-'+i);
-    if(!d) continue;
-    d.className='round-dot';
-    if(i<currentRound) d.classList.add('done');
-    else if(i===currentRound) d.classList.add('current');
-  }
-}
-
-function resetCircle(){
-  const c=document.getElementById('breath-circle');
-  c.style.transition='none';
-  c.style.transform='scale(1)';
-  c.style.background='rgba(192,132,252,.12)';
-  c.style.borderColor='rgba(192,132,252,.3)';
-}
-
-/* ═══════════════════════════════
-   RUN PHASE
-═══════════════════════════════ */
-function runPhase(){
-  if(!running) return;
-  const phase=selEx.phases[currentPhase];
-  const counts=slowMode ? Math.ceil(phase.counts*1.5) : phase.counts;
-  const secPerCount=1000;
-  totalPhaseDuration=counts*secPerCount;
-  phaseElapsed=0;
-
-  // Update UI text
-  fadeText(phase.label, phase.sub||'');
-  playPhaseSound(phase.type);
-
-  // Animate circle
-  const c=document.getElementById('breath-circle');
-  c.style.transition=`transform ${totalPhaseDuration}ms ease-in-out, background ${totalPhaseDuration}ms ease-in-out`;
-  c.style.transform=`scale(${phase.circleScale})`;
-  c.style.background=phase.bg;
-
-  // Count down
-  currentCount=counts;
-  document.getElementById('phase-count').textContent=currentCount;
-  clearInterval(countTimer);
-  countTimer=setInterval(()=>{
-    currentCount--;
-    if(currentCount<=0){ clearInterval(countTimer); return; }
-    document.getElementById('phase-count').textContent=currentCount;
-    playCountTick();
-  },secPerCount);
-
-  // Progress ring — animate over phase duration
-  clearInterval(phaseInterval);
-  const totalPhaseTime=getTotalRoundTime();
-  const phaseStart=getElapsedBeforePhase();
-  let ringEl=0;
-  phaseInterval=setInterval(()=>{
-    ringEl+=50;
-    const pct=(phaseStart+ringEl)/totalPhaseTime;
-    setRingProgress(Math.min(1,pct),selEx.color);
-    if(ringEl>=totalPhaseDuration) clearInterval(phaseInterval);
-  },50);
-
-  // Next phase
-  clearTimeout(phaseTimer);
-  phaseTimer=setTimeout(()=>{
-    currentPhase++;
-    if(currentPhase>=selEx.phases.length){
-      currentPhase=0;
-      currentRound++;
-      updateRoundDots();
-      if(currentRound>=selEx.rounds){
-        finishExercise(); return;
-      }
-      showAffirmation();
-    }
-    runPhase();
-  },totalPhaseDuration);
-}
-
-function getTotalRoundTime(){
-  let t=0;
-  selEx.phases.forEach(p=>{
-    const c=slowMode?Math.ceil(p.counts*1.5):p.counts;
-    t+=c*1000;
+    d.className='buddy-btn'+(b.e===selBuddy.e?' sel':'');
+    d.innerHTML=`<span class="buddy-emoji">${b.e}</span><span class="buddy-name">${b.name}</span>`;
+    addTouchClick(d,()=>{selBuddy=b;document.querySelectorAll('.buddy-btn').forEach(x=>x.classList.remove('sel'));d.classList.add('sel');});
+    bs.appendChild(d);
   });
-  return t*selEx.rounds;
+  const el=document.getElementById('ex-list');
+  el.innerHTML='';
+  EXERCISES.forEach(ex=>{
+    const d=document.createElement('div');d.className='ex-card';
+    d.innerHTML=`<div class="ex-icon-wrap" style="background:${ex.iconBg}">${ex.icon}</div><div class="ex-info"><div class="ex-name">${ex.name}</div><div class="ex-feeling">${ex.feeling}</div><div class="ex-desc">${ex.desc}</div><div class="ex-meta"><span class="ex-tag ${ex.tagClass}">${ex.tag}</span><span class="ex-tag tag-calm">${ex.rounds} rounds</span></div></div>`;
+    addTouchClick(d,()=>startExercise(ex));
+    el.appendChild(d);
+  });
 }
 
-function getElapsedBeforePhase(){
-  let t=0;
-  const phaseTime=p=>slowMode?Math.ceil(p.counts*1.5)*1000:p.counts*1000;
-  for(let r=0;r<currentRound;r++) selEx.phases.forEach(p=>t+=phaseTime(p));
-  for(let ph=0;ph<currentPhase;ph++) t+=phaseTime(selEx.phases[ph]);
-  return t;
+function addTouchClick(el,fn){
+  el.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();fn();});
+  el.addEventListener('click',function(e){e.stopPropagation();fn();});
 }
 
-function fadeText(main, sub){
-  const pt=document.getElementById('phase-text');
-  const ps=document.getElementById('phase-sub');
-  pt.style.opacity='0'; ps.style.opacity='0';
-  setTimeout(()=>{
-    pt.textContent=main; ps.textContent=sub;
-    pt.style.opacity='1'; ps.style.opacity='1';
-  },350);
-}
-
-function showAffirmation(){
-  const el=document.getElementById('affirmation-text');
-  el.style.opacity='0';
-  setTimeout(()=>{
-    el.textContent=AFFIRMATIONS[affirmIdx%AFFIRMATIONS.length];
-    affirmIdx++;
-    el.style.opacity='1';
-  },600);
-}
-
-/* ═══════════════════════════════
-   FINISH
-═══════════════════════════════ */
-function finishExercise(){
-  running=false;
-  clearTimeout(phaseTimer);
-  clearInterval(countTimer);
-  clearInterval(phaseInterval);
-
-  const c=document.getElementById('breath-circle');
-  c.style.transition='transform .8s ease,background .8s ease';
-  c.style.transform='scale(1)';
-  c.style.background='rgba(192,132,252,.18)';
-
-  setRingProgress(1, selEx.color);
-  fadeText('All done! 🎉','You finished every round!');
-  document.getElementById('phase-count').textContent='';
-  playDone();
-
-  // Mark all dots done
-  for(let i=0;i<selEx.rounds;i++){
-    const d=document.getElementById('rd-'+i);
-    if(d){ d.className='round-dot done'; }
+addBtn('start-btn',()=>{
+  if(!running){
+    running=true;
+    document.getElementById('start-btn').textContent='Stop ◼';
+    document.getElementById('start-btn').style.background='rgba(192,132,252,.35)';
+    runPhase();
+  } else {
+    running=false;clearTimeout(phaseTimer);clearInterval(countTimer);clearInterval(progInterval);
+    document.getElementById('start-btn').textContent='Start ▶';
+    document.getElementById('start-btn').style.background=selEx.color;
+    fadePhase('Paused 😌','Tap Start whenever you are ready');
+    document.getElementById('count-big').textContent='';
+    const ball=document.getElementById('breath-ball');
+    ball.style.transition='transform .5s,background .5s';ball.style.transform='scale(1)';
   }
+});
+addBtn('back-btn',()=>{running=false;clearTimeout(phaseTimer);clearInterval(countTimer);clearInterval(progInterval);showScreen('home');});
+addBtn('btn-again',()=>startExercise(selEx));
+addBtn('btn-home',()=>{running=false;clearTimeout(phaseTimer);clearInterval(countTimer);showScreen('home');});
+addBtn('btn-snd',()=>{soundOn=!soundOn;const b=document.getElementById('btn-snd');b.querySelector('.top-btn-icon').textContent=soundOn?'🔊':'🔇';b.querySelector('.top-btn-lbl').textContent=soundOn?'Sound':'Muted';b.classList.toggle('on',soundOn);});
+addBtn('btn-slow',()=>{slowMode=!slowMode;const b=document.getElementById('btn-slow');b.querySelector('.top-btn-lbl').textContent=slowMode?'ON':'Slow';b.classList.toggle('on',slowMode);});
+addBtn('carer-toggle',()=>{const body=document.getElementById('carer-body'),arrow=document.getElementById('carer-arrow');const open=body.classList.toggle('open');arrow.textContent=open?'▲':'▼';});
 
-  setTimeout(()=>{
-    document.getElementById('start-btn').style.display='none';
-    document.getElementById('phase-area').style.display='none';
-    document.getElementById('affirmation-box').style.display='none';
-    const done=document.getElementById('done-screen');
-    done.style.display='flex';
-    const msgs={
-      box:'Box breathing helps your nervous system calm down. Well done!',
-      deep:'Deep belly breaths send a signal to your brain that you are safe.',
-      478:'The 4-7-8 pattern is used by doctors to help with anxiety and sleep.',
-      flower:'Smelling flowers and blowing candles is one of the easiest ways to calm down!',
-      star:'Star breathing helps you feel focused and grounded. You did it!',
-    };
-    document.getElementById('done-sub').textContent=msgs[selEx.id]||'Amazing breathing! You should feel very proud.';
-    document.getElementById('done-buddy').textContent=selBuddy.e;
-    const pct=1;
-    const stars=pct>=1?'⭐⭐⭐':pct>=.7?'⭐⭐':'⭐';
-    document.getElementById('done-stars').textContent=stars;
-    document.getElementById('done-msg').textContent='Well done, '+selBuddy.name+'!';
-  },1400);
-}
-
-/* ═══════════════════════════════
-   CONTROLS
-═══════════════════════════════ */
-(function(){
-  var btn=document.getElementById('start-btn');
-  function _startAction(e){
-    e.stopPropagation();
-    if(!running){
-      running=true;
-      btn.textContent='Pause ⏸';
-      btn.style.background='rgba(192,132,252,.4)';
-      updateRoundDots();
-      runPhase();
-    } else {
-      running=false;
-      clearTimeout(phaseTimer); clearInterval(countTimer); clearInterval(phaseInterval);
-      btn.textContent='Resume ▶';
-      btn.style.background=selEx.color;
-      fadeText('Paused','Tap Resume when ready');
-      document.getElementById('phase-count').textContent='';
-      var ci=document.getElementById('breath-circle');
-      ci.style.transition='transform .5s,background .5s';
-      ci.style.transform='scale(1)';
-    }
-  }
-  btn.addEventListener('touchend',function(e){e.preventDefault();_startAction(e);});
-  btn.addEventListener('click',_startAction);
-})();
-
-(function(){
-  var btn=document.getElementById('back-btn');
-  function _backAction(e){e.stopPropagation();running=false;clearTimeout(phaseTimer);clearInterval(countTimer);clearInterval(phaseInterval);showScreen('home');}
-  btn.addEventListener('touchend',function(e){e.preventDefault();_backAction(e);});
-  btn.addEventListener('click',_backAction);
-})();
-
-(function(){
-  var btn=document.getElementById('done-again');
-  function _a(e){e.stopPropagation();startExercise(selEx);}
-  btn.addEventListener('touchend',function(e){e.preventDefault();_a(e);});
-  btn.addEventListener('click',_a);
-})();
-(function(){
-  var btn=document.getElementById('done-home');
-  function _h(e){e.stopPropagation();running=false;clearTimeout(phaseTimer);clearInterval(countTimer);showScreen('home');}
-  btn.addEventListener('touchend',function(e){e.preventDefault();_h(e);});
-  btn.addEventListener('click',_h);
-})();
-
-(function(){
-  var btn=document.getElementById('btn-snd');
-  function _s(e){e.stopPropagation();soundOn=!soundOn;btn.textContent=soundOn?'🔊':'🔇';btn.classList.toggle('on',soundOn);}
-  btn.addEventListener('touchend',function(e){e.preventDefault();_s(e);});
-  btn.addEventListener('click',_s);
-})();
-
-(function(){
-  var btn=document.getElementById('btn-slow');
-  function _sl(e){e.stopPropagation();slowMode=!slowMode;btn.textContent=slowMode?'🐢':'⚡';btn.classList.toggle('on',slowMode);}
-  btn.addEventListener('touchend',function(e){e.preventDefault();_sl(e);});
-  btn.addEventListener('click',_sl);
-})();
-
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-
-/* ═══════════════════════════════
-   INIT
-═══════════════════════════════ */
-initRing(window.innerWidth<380?220:260);
-window.addEventListener('resize',()=>initRing(window.innerWidth<380?220:260));
-buildHome();
-setRingProgress(0);
-</script>
-<script>
 if('serviceWorker' in navigator){
-  const sw=`const CACHE='calm-v1';const A=[self.location.pathname];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(A))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));`;
+  const sw=`const C='bwm-v3';self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll([self.location.pathname]))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));`;
   navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'application/javascript'}))).catch(()=>{});
 }
-let _dp=null;
-window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();_dp=e;
-  var b=document.getElementById('install-banner');
-  if(b){
-    b.style.display='flex';
-    setTimeout(function(){
-      b.style.transition='opacity 1s';b.style.opacity='0';
-      setTimeout(function(){b.style.display='none';b.style.opacity='1';},1000);
-    },5000);
-  }
-});
-window.addEventListener('appinstalled',()=>{const b=document.getElementById('install-banner');if(b)b.style.display='none';});
-document.addEventListener('DOMContentLoaded',()=>{
-  const ib=document.getElementById('install-btn');
-  const id=document.getElementById('install-dismiss');
-  if(ib)ib.onclick=async()=>{if(_dp){_dp.prompt();await _dp.userChoice;_dp=null;document.getElementById('install-banner').style.display='none';}};
-  if(id)id.onclick=()=>document.getElementById('install-banner').style.display='none';
-  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.navigator.standalone;
-  const t=document.getElementById('ios-tip');if(isIOS&&t)t.style.display='block';
-});
+
+buildHome();setRing(0);
+setInterval(()=>{if(!running)showAffirmation();},15000);
 </script>
 </body>
 </html>
