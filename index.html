@@ -17,8 +17,8 @@
   --card:rgba(255,255,255,.08);--border:rgba(255,255,255,.14);
   --green:#4ade80;--yellow:#fbbf24;
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-html,body{width:100%;height:100%;overflow-x:hidden;font-family:'Nunito',sans-serif;background:var(--bg1);color:var(--text);}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{width:100%;height:100%;overflow-x:hidden;font-family:'Nunito',sans-serif;background:var(--bg1);color:var(--text);}body{width:100%;min-height:100%;overflow-x:hidden;font-family:'Nunito',sans-serif;background:var(--bg1);color:var(--text);}
 #stars-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .star{position:absolute;border-radius:50%;background:white;opacity:0;animation:twinkle var(--d,4s) var(--delay,0s) ease-in-out infinite;}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--op,.3)}}
@@ -124,6 +124,9 @@ html,body{width:100%;height:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
   .ex-name{font-size:17px;}
   #home-hero h1{font-size:30px;}
 }
+
+button{touch-action:manipulation;}
+.buddy-btn{touch-action:manipulation;}
 </style>
 </head>
 <body>
@@ -275,7 +278,13 @@ function setRing(pct,col){
 
 function addBtn(id,fn){
   const el=document.getElementById(id);if(!el)return;
-  el.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();fn(e);});
+  var _sy=0,_sx=0;
+  el.addEventListener('touchstart',function(e){_sy=e.touches[0].clientY;_sx=e.touches[0].clientX;},{passive:true});
+  el.addEventListener('touchend',function(e){
+    var dy=Math.abs(e.changedTouches[0].clientY-_sy);
+    var dx=Math.abs(e.changedTouches[0].clientX-_sx);
+    if(dy<10&&dx<10){e.preventDefault();e.stopPropagation();fn(e);}
+  });
   el.addEventListener('click',function(e){e.stopPropagation();fn(e);});
 }
 
@@ -397,7 +406,17 @@ function buildHome(){
 }
 
 function addTouchClick(el,fn){
-  el.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();fn();});
+  var startY=0,startX=0;
+  el.addEventListener('touchstart',function(e){
+    startY=e.touches[0].clientY;
+    startX=e.touches[0].clientX;
+  },{passive:true});
+  el.addEventListener('touchend',function(e){
+    var dy=Math.abs(e.changedTouches[0].clientY-startY);
+    var dx=Math.abs(e.changedTouches[0].clientX-startX);
+    // Only fire if it was a tap (moved less than 10px) not a scroll
+    if(dy<10 && dx<10){e.preventDefault();e.stopPropagation();fn();}
+  });
   el.addEventListener('click',function(e){e.stopPropagation();fn();});
 }
 
